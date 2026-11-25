@@ -11,6 +11,30 @@ Gain more practical experience by using this repository that contains a Python W
 1. Enable your [GitHub Copilot service](https://github.com/github-copilot/signup)
 1. Open [this repository with Codespaces](https://codespaces.new/MicrosoftDocs/mslearn-copilot-codespaces-python)
 
+## Run the project in its Codespace
+
+The configured dev container uses Python 3.10 and creates the virtual
+environment at `/home/vscode/venv`. It installs the packages from
+[requirements.txt](requirements.txt) when the container is built.
+
+When you attach to the Codespace, it automatically starts the API with Uvicorn
+using `main:app` and reload enabled. Codespaces forwards port 8000, labels it
+**Application**, and opens a browser preview automatically. The forwarded port
+is private by default; use the **Ports** panel to access the preview.
+
+The city-list endpoint accepts a region from the weather data. For example,
+`GET /regions/Spain` returns:
+
+```json
+["Seville"]
+```
+
+To run the existing tests from the repository root in the Codespace terminal:
+
+```bash
+/home/vscode/venv/bin/python -m pytest
+```
+
 ## 💪🏽 Exercise
 The current API is not exposing country/{country} which needs to be implemented to list cities. The route should allow only GET HTTP requests with a JSON response providing information from the historical high and low for that country, city, and given month.
 
